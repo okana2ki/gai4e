@@ -1,3 +1,4 @@
+# https://developer.meshprj.com/hc/ja/articles/9164308204313-Python
 import asyncio
 # from bleak import BleakClient, discover
 from bleak import BleakClient, BleakScanner

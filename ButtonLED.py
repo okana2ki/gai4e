@@ -1,3 +1,4 @@
+# https://chatgpt.com/share/68060586-f6b8-8004-b660-6da2e3d082e0
 import asyncio
 from bleak import BleakClient, BleakScanner
 from struct import pack
