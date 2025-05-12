@@ -8,7 +8,7 @@ from vosk import Model, KaldiRecognizer
 from google import genai
 from gtts import gTTS
 from playsound import playsound
-# from playsound2 import playsound
+# from playsound3 import playsound
 
 # ── 設定 ──
 # スクリプトファイル自身の場所を基準にモデルフォルダを組み立て
