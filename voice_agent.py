@@ -8,7 +8,7 @@ from vosk import Model, KaldiRecognizer
 from google import genai
 from gtts import gTTS
 from playsound import playsound
-# from playsound3 import playsound
+# from playsound2 import playsound
 
 # ── 設定 ──
 # スクリプトファイル自身の場所を基準にモデルフォルダを組み立て
@@ -67,18 +67,6 @@ def chat_gemini(prompt):
         }        
     )
     # return resp["candidates"][0]["message"]
-    return resp.text
-
-def chat_gemini(prompt):
-    resp = client.models.generate_content(
-        model="gemini-2.0-flash-001",
-        contents=prompt,
-        config={
-            "maxOutputTokens": 50,       # ここを小さめに
-            "candidateCount": 1,         # 応答候補は１つ
-            "temperature": 0.5,          # 必要に応じて応答の“ばらつき”も抑制
-        }
-    )
     return resp.text
 
 def main():
