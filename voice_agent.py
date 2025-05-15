@@ -17,7 +17,7 @@ except ImportError:
 # ── 設定 ──
 # スクリプトファイル自身の場所を基準にモデルフォルダを組み立て
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "model-ja")  # Vosk日本語モデルのパス：自分の環境に合わせて書き換え
+MODEL_PATH = os.path.join(BASE_DIR, "vosk-model-small-ja-0.22")  # Vosk日本語モデルのパス：自分の環境に合わせて書き換え
 # 解凍したディレクトリ名をそのまま使っているなら、"vosk-model-small-ja-0.22"とかにする
 # MODEL_PATH      = "./model-ja"     # Vosk日本語モデルのパス：自分の環境に合わせて書き換え
 # MODEL_PATH      = "C:/Briefcase/__python/voice_agent/model-ja"     # Vosk日本語モデルのパス：自分の環境に合わせて書き換え
