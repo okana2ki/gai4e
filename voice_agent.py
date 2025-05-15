@@ -7,8 +7,12 @@ from vosk import Model, KaldiRecognizer
 # from google.generativeai import Client
 from google import genai
 from gtts import gTTS
-from playsound import playsound
-# from playsound2 import playsound
+# from playsound import playsound
+try:
+    from playsound3 import playsound
+except ImportError:
+    # playsound3 が入っていなければ従来版へフォールバック
+    from playsound import playsound
 
 # ── 設定 ──
 # スクリプトファイル自身の場所を基準にモデルフォルダを組み立て
