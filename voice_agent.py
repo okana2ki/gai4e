@@ -19,11 +19,20 @@ try:
 except ImportError:
     from playsound import playsound  # playsound3 が入っていなければ従来版へフォールバック
 
-# ── 設定 ──
-BASE_DIR      = os.path.dirname(os.path.abspath(__file__))  # このスクリプトのディレクトリ
-MODEL_PATH    = os.path.join(BASE_DIR, "vosk-model-small-ja-0.22")  # Vosk 日本語モデルのパス
+# ── Vosk/SampleRate 設定 ──
+BASE_DIR   = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "vosk-model-small-ja-0.22")
 # Vosk日本語モデルのパス：自分の環境に合わせて書き換え；smallモデルを使っていて、解凍後ファイル名を変えてなければこのままでOK
-SAMPLE_RATE   = 16000  # モデルがサポートするサンプリングレート
+import sounddevice as sd
+# デフォルト入力デバイスのサンプルレートを自動取得し、失敗時は16000Hzをフォールバック
+try:
+    default_input_device = sd.default.device[0]
+    device_info = sd.query_devices(default_input_device, 'input')
+    SAMPLE_RATE = int(device_info['default_samplerate'])
+    print(f"使用マイク ({device_info['name']}) のデフォルトサンプルレート: {SAMPLE_RATE} Hz")
+except Exception:
+    print("入力デバイス情報の取得に失敗。16000Hz を使用します。")
+    SAMPLE_RATE = 16000
 
 # ── 初期化 ──
 model      = Model(MODEL_PATH)  # Vosk モデルロード
